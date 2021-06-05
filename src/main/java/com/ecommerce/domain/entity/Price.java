@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.ecommerce.domain.model.Currency;
 
@@ -25,7 +26,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Prices {
+@Table(name = "PRICES")
+public class Price {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
