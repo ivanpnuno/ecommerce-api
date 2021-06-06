@@ -1,12 +1,11 @@
 package com.ecommerce.domain.dto;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.ecommerce.domain.entity.Price;
+import com.ecommerce.domain.model.Currency;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,13 +18,16 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PriceDTO {
+public class PriceResponseDTO {
 	
-	@NotNull(message = "pricesList is required")
-	private Long pricesList;
+	@NotNull(message = "productId is required")
+	private Long productId;
 	
 	@NotNull(message = "brandId is required")
 	private Long brandId;
+	
+	@NotNull(message = "pricesList is required")
+	private Long pricesList;
 	
 	@NotNull(message = "startDate is required")
 	private LocalDateTime startDate;
@@ -33,29 +35,17 @@ public class PriceDTO {
 	@NotNull(message = "endDate is required")
 	private LocalDateTime endDate;
 	
-	@NotNull(message = "productId is required")
-	private Long productId;
-	
-	@NotNull(message = "priority is required")
-	private Integer priority;
-	
 	@NotNull(message = "price is required")
-	private BigDecimal price;
+	private Currency price;
 	
-	@NotNull(message = "currency is required")
-	@NotEmpty(message = "currency must not be empty")
-	private String currency;
-	
-	public static PriceDTO from(Price price) {
-		return PriceDTO.builder()
+	public static PriceResponseDTO from(Price price) {
+		return PriceResponseDTO.builder()
 		.pricesList(price.getPricesList())
 		.brandId(price.getBrandId())
 		.startDate(price.getStartDate())
 		.endDate(price.getEndDate())
 		.productId(price.getProductId())
-		.priority(price.getPriority())
-		.price(price.getPrice())
-		.currency(price.getCurrency().getValue())
+		.price(Currency.builder().amount(price.getPrice()).currency(price.getCurrency().getValue()).build())
 		.build();
 	}
 	

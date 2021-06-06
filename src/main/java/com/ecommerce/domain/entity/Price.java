@@ -1,7 +1,7 @@
 package com.ecommerce.domain.entity;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.ecommerce.domain.model.Currency;
+import com.ecommerce.domain.model.CurrencyType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,10 +38,10 @@ public class Price {
 	private Long brandId;
 	
 	@Column(nullable = false)
-	private Timestamp startDate;
+	private LocalDateTime startDate;
 	
 	@Column(nullable = false)
-	private Timestamp endDate;
+	private LocalDateTime endDate;
 	
 	@Column(nullable = false)
 	private Long productId;
@@ -54,5 +54,5 @@ public class Price {
 	
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
-	private Currency currency;
+	private CurrencyType currency;
 }

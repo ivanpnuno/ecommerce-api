@@ -8,7 +8,9 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
-import com.ecomerce.controller.PriceController;
+import com.ecommerce.controller.PriceController;
+import com.ecommerce.exceptions.ConstraintViolationExceptionHandler;
+import com.ecommerce.exceptions.CustomExceptionHandler;
 
 @Component
 @ApplicationPath("/api")
@@ -20,5 +22,7 @@ public class AppConfig extends ResourceConfig {
 		packages("com.ecommerce");
 		property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
 		this.register(PriceController.class);
+		this.register(ConstraintViolationExceptionHandler.class);
+		this.register(CustomExceptionHandler.class);
 	}
 }

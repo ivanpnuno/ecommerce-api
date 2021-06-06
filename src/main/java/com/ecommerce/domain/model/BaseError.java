@@ -1,7 +1,5 @@
 package com.ecommerce.domain.model;
 
-import java.math.BigDecimal;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,9 +11,8 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Currency {
+public class BaseError {
 
-	private String currency;
-
-	private BigDecimal amount;
+	Integer code;
+	String message;
 }

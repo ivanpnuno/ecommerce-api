@@ -1,6 +1,6 @@
 package com.ecommerce.domain.model;
 
-import java.math.BigDecimal;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,9 +13,9 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Currency {
+public class CustomFieldError {
 
-	private String currency;
+	private String errorType;
 
-	private BigDecimal amount;
+	private List<ConstraintError> parameterError;
 }
