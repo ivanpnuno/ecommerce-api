@@ -9,9 +9,6 @@ import lombok.Setter;
 @Setter
 public class BaseException extends Exception implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5055624086915172241L;
 	private Integer exceptionCode;
 	

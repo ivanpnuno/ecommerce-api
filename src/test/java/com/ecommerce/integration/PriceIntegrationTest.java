@@ -49,7 +49,7 @@ public class PriceIntegrationTest {
 	public void init() {
 		restTemplate = new RestTemplate();
 		
-		baseurl = String.format("http://localhost:%d/api/v1/prices", port);
+		baseurl = String.format("http://localhost:%d/api/prices", port);
 	}
 
 	@AfterAll

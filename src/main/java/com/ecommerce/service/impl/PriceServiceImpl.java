@@ -35,6 +35,6 @@ public class PriceServiceImpl implements PriceService {
 			return prices.stream().findFirst().map(price -> PriceResponseDTO.from(price)).get();
 		} catch (Exception e) {
 			throw new CustomNotFoundException(String.format("Price not found with brandId: %d, productId: %d and date: %s", brandId, productId, date.toString()));
-		}	
+		}
 	}
 }
